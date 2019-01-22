@@ -30,4 +30,16 @@ class funs extends ConnectDB
              echo "string";
 		}
 	}
+
+	public function getAllsStudent(){
+		$sql=$this->db->prepare("SELECT * FROM student WHERE status!=?");
+		$sql->execute(array("new"));
+		return $sql;
+	}
+
+	public function getAllsGroup(){
+		$sql=$this->db->prepare("SELECT * FROM _group");
+		$sql->execute();
+		return $sql;
+	}
 }

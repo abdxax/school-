@@ -1,3 +1,8 @@
+<?php
+require "../connect/function.php";
+$db=new funs();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,9 +42,28 @@
 				<table class="table">
 					<thead>
 						<th>الاسم </th>
-						<th > اضاقة مجموعة </th>
+						<!--<th > اضاقة مجموعة </th>-->
 						<th> حذف </th>
 					</thead>
+					<tbody>
+						<?php
+						$sql=$db->getAllsStudent();
+						foreach ($sql as $key) {
+							echo '
+
+                             <tr>
+                             <td>'.$key['name'].'</td>
+                             <td>
+                                <a href=delet.php?email='.$key['email'].'>DELETE</a>
+                             </td>
+
+                             /td>
+                             </tr>
+							';
+						}
+
+						?>
+					</tbody>
 				</table>
 			</div>
 

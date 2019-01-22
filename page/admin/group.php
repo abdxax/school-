@@ -1,3 +1,9 @@
+<?php
+require "../connect/function.php";
+$db=new funs();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +46,24 @@
 						<th > الحالة </th>
 						<th> </th>
 					</thead>
+					<tbody>
+						<?php 
+                          $sql=$db->getAllsGroup();
+                          foreach ($sql as $key) {
+							echo '
+
+                             <tr>
+                             <td><a href=gropIndex.php?id='.$key['id_group'].'>'.$key['group_name'].'</td>
+                             <td>
+                                '.$key['status'].'
+                             </td>
+
+                             </td>
+                             </tr>
+							';
+						}
+						?>
+					</tbody>
 				</table>
 			</div>
 
